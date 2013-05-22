@@ -13,9 +13,10 @@ describe Uur::TablePrinting::TablePrinter do
 
     context "when all arguments are provided" do
       it "should print the table" do
-        out.should_receive(:puts).with("The Header")
-        out.should_receive(:puts).with([ "one         two  three", "four       five    six" ])
-        out.should_receive(:puts).with(no_args)
+        out.should_receive(:puts).with "The Header"
+        out.should_receive(:puts).with ["one         two  three",
+                                        "four       five    six"]
+        out.should_receive(:puts).with no_args
         table_printer.print
       end
     end
@@ -23,9 +24,10 @@ describe Uur::TablePrinting::TablePrinter do
     context "when not all widths are provided" do
       let(:widths) { [8] }
       it "should assume the width that fits the content for each row differently" do
-        out.should_receive(:puts).with("The Header")
-        out.should_receive(:puts).with([ "one      two three", "four     five six" ])
-        out.should_receive(:puts).with(no_args)
+        out.should_receive(:puts).with "The Header"
+        out.should_receive(:puts).with ["one      two three",
+                                        "four     five six"]
+        out.should_receive(:puts).with no_args
         table_printer.print
       end
     end
@@ -33,9 +35,10 @@ describe Uur::TablePrinting::TablePrinter do
     context "when not all alignments are provided" do
       let(:alignments) { [:left] }
       it "should assume the :left alignments" do
-        out.should_receive(:puts).with("The Header")
-        out.should_receive(:puts).with([ "one      two    three ", "four     five   six   " ])
-        out.should_receive(:puts).with(no_args)
+        out.should_receive(:puts).with "The Header"
+        out.should_receive(:puts).with ["one      two    three ",
+                                        "four     five   six   "]
+        out.should_receive(:puts).with no_args
         table_printer.print
       end
     end
@@ -43,9 +46,10 @@ describe Uur::TablePrinting::TablePrinter do
     context "when provided widths are shorter than the cells content" do
       let(:widths) { [2, 1, 0] }
       it "should assume the width that fits the content for each row differently" do
-        out.should_receive(:puts).with("The Header")
-        out.should_receive(:puts).with([ "one two three", "four five six" ])
-        out.should_receive(:puts).with(no_args)
+        out.should_receive(:puts).with "The Header"
+        out.should_receive(:puts).with ["one two three",
+                                        "four five six"]
+        out.should_receive(:puts).with no_args
         table_printer.print
       end
     end
