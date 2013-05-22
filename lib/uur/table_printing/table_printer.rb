@@ -9,8 +9,6 @@ module Uur
         @out        = out
       end
 
-      attr_reader :table, :widths, :alignments
-
       def print
         @out.puts formatted_table.header
         @out.puts formatted_table.map { |row_cells| row_cells.join(' ') }
@@ -18,6 +16,8 @@ module Uur
       end
 
       private
+
+      attr_reader :table, :widths, :alignments
 
       def formatted_table
         @formatted_table ||=
