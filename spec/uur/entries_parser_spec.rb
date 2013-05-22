@@ -52,6 +52,17 @@ describe Uur::EntriesParser do
       end
     end
 
+    context "if there are lines containing # but where the first non-whitespace character is not #" do
+      let(:lines) do
+        [ "2013-05-12 10:00 - 10:30 Project #Name  Entry description. [#1234]",
+          "2013-05-12 10:30 - 11:30 Project Name  Another entry description. [#5678]"]
+      end
+
+      specify "such lines should not be ignored" do
+        result.size.should eq 2
+      end
+    end
+
     context "if there is no description given" do
       let(:lines) { [ "2013-05-12 10:00 - 10:30 Project" ] }
       specify "the description should be an empty string" do

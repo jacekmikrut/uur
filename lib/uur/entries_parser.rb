@@ -15,7 +15,7 @@ module Uur
 
     def reject_blank_or_commented_lines(lines)
       lines.reject do |line|
-        line.strip == "" or line =~ /\s*#/
+        line.strip == "" or line =~ /^\s*#/
       end
     end
 
