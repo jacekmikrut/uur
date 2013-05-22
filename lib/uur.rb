@@ -8,6 +8,7 @@ require "uur/entry"
 require "uur/entries"
 require "uur/entries_parser"
 require "uur/table_printing/table"
+require "uur/table_printing/table_printer"
 
 module Uur
 end
