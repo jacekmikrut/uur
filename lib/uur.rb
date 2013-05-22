@@ -6,6 +6,7 @@ require "uur/time_mapper"
 require "uur/duration_formatters/hours_and_minutes_duration_formatter"
 require "uur/entry"
 require "uur/entries"
+require "uur/entries_parser"
 
 module Uur
 end
