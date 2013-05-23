@@ -10,6 +10,8 @@ require "uur/entries_parser"
 require "uur/table_printing/table"
 require "uur/table_printing/table_printer"
 require "uur/table_printing/tables_printer"
+require "uur/printers/printer"
+require "uur/printers/entries_printer"
 
 module Uur
 end
