@@ -8,6 +8,10 @@ module Uur
       end
 
       attr_accessor :header
+
+      def ==(other)
+        header == other.header && super
+      end
     end
   end
 end

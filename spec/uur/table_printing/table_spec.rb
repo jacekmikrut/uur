@@ -19,4 +19,29 @@ describe Uur::TablePrinting::Table do
       table.header.should equal new_header
     end
   end
+
+  describe "#==" do
+    let(:other_table ) { described_class.new(other_header, other_cells) }
+
+    context "when the other table has the same cells and the same header" do
+      let(:other_header) { "Table Header" }
+      let(:other_cells ) { [ ["a", "b"], ["c", "d"] ] }
+
+      it { (table == other_table).should be_true }
+    end
+
+    context "when the other table has the same cells but different header" do
+      let(:other_header) { "Different Header" }
+      let(:other_cells ) { [ ["a", "b"], ["c", "d"] ] }
+
+      it { (table == other_table).should be_false }
+    end
+
+    context "when the other table has the same header but different cells" do
+      let(:other_header) { "Table Header" }
+      let(:other_cells ) { [ ["a", "b"], ["c", "D"] ] }
+
+      it { (table == other_table).should be_false }
+    end
+  end
 end
