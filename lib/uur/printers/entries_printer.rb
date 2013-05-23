@@ -3,7 +3,7 @@ module Uur
     class EntriesPrinter < Printer
 
       def print(entries)
-        print_tables entries, :day, "%a, %d %B %Y"
+        print_tables entries, :day, proc { |time| time.strftime("%a, %d %B %Y") }
       end
 
       private

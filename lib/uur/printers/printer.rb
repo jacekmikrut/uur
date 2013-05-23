@@ -13,12 +13,12 @@ module Uur
         @duration_formatter.format(duration)
       end
 
-      def print_tables(entries, interval, date_header_format)
-        Uur::TablePrinting::TablesPrinter.new(tables(entries, interval, date_header_format), alignments, @out).print
+      def print_tables(entries, interval, header_proc)
+        Uur::TablePrinting::TablesPrinter.new(tables(entries, interval, header_proc), alignments, @out).print
       end
 
-      def tables(entries, interval, date_header_format)
-        entries.group_by(&interval).map { |date, entries| Uur::TablePrinting::Table.new("#{date.strftime(date_header_format)}", rows(entries)) }
+      def tables(entries, interval, header_proc)
+        entries.group_by(&interval).map { |date, entries| Uur::TablePrinting::Table.new(header_proc.call(date), rows(entries)) }
       end
     end
   end
