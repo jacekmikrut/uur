@@ -8,6 +8,8 @@ describe Uur::TablePrinting::Table do
 
   it { should be_kind_of Array }
 
+  its(:inspect) { should eq "Header: \"Table Header\", content: [[\"a\", \"b\"], [\"c\", \"d\"]]" }
+
   describe "#header and #header=" do
     it "should initially return the value set via the initialize method" do
       table.header.should equal header

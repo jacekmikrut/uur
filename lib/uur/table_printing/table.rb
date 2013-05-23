@@ -12,6 +12,10 @@ module Uur
       def ==(other)
         header == other.header && super
       end
+
+      def inspect
+        "Header: #{header.inspect}, content: #{super}"
+      end
     end
   end
 end
