@@ -36,8 +36,8 @@ describe Uur::TablePrinting::TablePrinter do
       let(:alignments) { [:left] }
       it "should assume the :left alignments" do
         out.should_receive(:puts).with "The Header"
-        out.should_receive(:puts).with ["one      two    three ",
-                                        "four     five   six   "]
+        out.should_receive(:puts).with ["one      two    three",
+                                        "four     five   six"]
         out.should_receive(:puts).with no_args
         table_printer.print
       end

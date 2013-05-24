@@ -14,16 +14,16 @@ describe Uur::TablePrinting::TablesPrinter do
 
     it "should adjust the widths of all columns to the same size that fits the contents" do
       out.should_receive(:puts).with "Numbers"
-      out.should_receive(:puts).with ["one      two     three    ",
-                                      "four     five    six      "]
+      out.should_receive(:puts).with ["one      two     three",
+                                      "four     five    six"]
       out.should_receive(:puts).with no_args
       out.should_receive(:puts).with "Weekdays"
       out.should_receive(:puts).with ["Monday   Tuesday Wednesday",
-                                      "Thursday Friday  Saturday "]
+                                      "Thursday Friday  Saturday"]
       out.should_receive(:puts).with no_args
       out.should_receive(:puts).with "Colors"
-      out.should_receive(:puts).with ["Red      Green   Blue     ",
-                                      "White    Gray    Black    "]
+      out.should_receive(:puts).with ["Red      Green   Blue",
+                                      "White    Gray    Black"]
       out.should_receive(:puts).with no_args
 
       tables_printer.print
