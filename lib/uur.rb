@@ -12,6 +12,7 @@ require "uur/table_printing/table_printer"
 require "uur/table_printing/tables_printer"
 require "uur/printers/printer"
 require "uur/printers/entries_printer"
+require "uur/printers/summary_printer"
 
 module Uur
 end
