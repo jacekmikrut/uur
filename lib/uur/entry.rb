@@ -7,6 +7,10 @@ module Uur
       starts_at.beginning_of_day
     end
 
+    def week
+      starts_at.beginning_of_week
+    end
+
     def month
       starts_at.beginning_of_month
     end

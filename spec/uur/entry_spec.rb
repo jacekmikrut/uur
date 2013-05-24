@@ -29,6 +29,15 @@ describe Uur::Entry do
     end
   end
 
+  describe "#week" do
+    subject { entry.week }
+
+    context "for an entry that starts at 2013-05-11 10:28" do
+      let(:entry) { Uur::Entry.new(starts_at: Time.new(2013, 5, 11, 10, 28)) }
+      it { should eq Time.new(2013, 5, 6) }
+    end
+  end
+
   describe "#month" do
     subject { entry.month }
 
