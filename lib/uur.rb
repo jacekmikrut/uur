@@ -16,6 +16,7 @@ require "uur/printers/entries_printer"
 require "uur/printers/summary_printer"
 require "uur/args_parser"
 require "uur/action_executor"
+require "uur/app"
 
 module Uur
 end
