@@ -54,6 +54,8 @@ module Uur
       options[:duration_format] ||= "hours-minutes"
       options[:print_list     ]   = true if !options[:print_list] && !options[:print_summary]
 
+      set_default_summary_interval(options) if options[:print_summary] && options[:summary_interval].nil?
+
       if options[:within]
         time_mapper = TimeMapper.new(Time.now)
         options[:since] = time_mapper.since(options[:within])
@@ -61,6 +63,21 @@ module Uur
       end
 
       options
+    end
+
+    private
+
+    def set_default_summary_interval(options)
+      options[:summary_interval] = case options[:within]
+                                   when "today", "yesterday"
+                                     "daily"
+                                   when "this-week", "last-week"
+                                     "weekly"
+                                   when "this-month", "last-month"
+                                     "monthly"
+                                   when "this-year", "last-year"
+                                     "yearly"
+                                   end
     end
   end
 end

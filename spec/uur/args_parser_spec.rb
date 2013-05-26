@@ -42,7 +42,7 @@ describe Uur::ArgsParser do
       let(:args) { %w[-s] }
       it { should == {
         print_summary:    true,
-        summary_interval: nil,
+        summary_interval: "daily",
         within:           "today",
         since:            Time.now.beginning_of_day,
         to:               Time.now.end_of_day,
