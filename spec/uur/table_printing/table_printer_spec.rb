@@ -53,5 +53,13 @@ describe Uur::TablePrinting::TablePrinter do
         table_printer.print
       end
     end
+
+    context "when no header is provided" do
+      let(:header) { nil }
+      it "should not print the header line" do
+        out.should_not_receive(:puts).with nil
+        table_printer.print
+      end
+    end
   end
 end
