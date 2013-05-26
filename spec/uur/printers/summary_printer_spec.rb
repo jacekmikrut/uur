@@ -220,7 +220,7 @@ describe Uur::Printers::SummaryPrinter do
 
         it "should delegate printing to a TablesPrinter object" do
           Uur::TablePrinting::TablesPrinter.should_receive(:new).with(
-            [ Uur::TablePrinting::Table.new("All time summary", [
+            [ Uur::TablePrinting::Table.new(nil, [
                                             ["Project A", "formatted:33000" ],
                                             ["Project B", "formatted:10500" ],
                                             ["Project C", "formatted:9000" ],

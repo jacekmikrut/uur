@@ -18,7 +18,7 @@ module Uur
           print_tables entries, :year,  proc { |time| time.strftime("Year %Y") }
 
         else
-          print_tables entries, :nil,   proc { |time| "All time summary" }
+          print_tables entries, :nil,   proc { nil }
 
         end
       end
