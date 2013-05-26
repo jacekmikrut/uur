@@ -14,6 +14,7 @@ require "uur/table_printing/tables_printer"
 require "uur/printers/printer"
 require "uur/printers/entries_printer"
 require "uur/printers/summary_printer"
+require "uur/args_parser"
 
 module Uur
 end
