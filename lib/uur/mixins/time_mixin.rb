@@ -19,7 +19,7 @@ module Uur
       end
 
       def beginning_of_week
-        (self - (wday - 1).days).beginning_of_day
+        beginning_of_day - (wday == 0 ? 6 : wday - 1).days
       end
 
       def end_of_week

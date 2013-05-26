@@ -49,4 +49,28 @@ describe "Each Time instance after including", Uur::Mixins::TimeMixin do
     its(:beginning_of_previous_year ) { should eq Time.new(2012,  1,  1,  0,  0,  0) }
     its(      :end_of_previous_year ) { should eq Time.new(2012, 12, 31, 23, 59, 59) }
   end
+
+  context "for 2013-05-19 20:10:05" do
+    subject(:time) { Time.new(2013, 5, 19, 20, 10, 5) }
+
+    its(:beginning_of_day           ) { should eq Time.new(2013,  5, 19,  0,  0,  0) }
+    its(      :end_of_day           ) { should eq Time.new(2013,  5, 19, 23, 59, 59) }
+    its(:beginning_of_previous_day  ) { should eq Time.new(2013,  5, 18,  0,  0,  0) }
+    its(      :end_of_previous_day  ) { should eq Time.new(2013,  5, 18, 23, 59, 59) }
+
+    its(:beginning_of_week          ) { should eq Time.new(2013,  5, 13,  0,  0,  0) }
+    its(      :end_of_week          ) { should eq Time.new(2013,  5, 19, 23, 59, 59) }
+    its(:beginning_of_previous_week ) { should eq Time.new(2013,  5,  6,  0,  0,  0) }
+    its(      :end_of_previous_week ) { should eq Time.new(2013,  5, 12, 23, 59, 59) }
+
+    its(:beginning_of_month         ) { should eq Time.new(2013,  5,  1,  0,  0,  0) }
+    its(      :end_of_month         ) { should eq Time.new(2013,  5, 31, 23, 59, 59) }
+    its(:beginning_of_previous_month) { should eq Time.new(2013,  4,  1,  0,  0,  0) }
+    its(      :end_of_previous_month) { should eq Time.new(2013,  4, 30, 23, 59, 59) }
+
+    its(:beginning_of_year          ) { should eq Time.new(2013,  1,  1,  0,  0,  0) }
+    its(      :end_of_year          ) { should eq Time.new(2013, 12, 31, 23, 59, 59) }
+    its(:beginning_of_previous_year ) { should eq Time.new(2012,  1,  1,  0,  0,  0) }
+    its(      :end_of_previous_year ) { should eq Time.new(2012, 12, 31, 23, 59, 59) }
+  end
 end
