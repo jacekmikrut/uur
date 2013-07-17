@@ -16,7 +16,6 @@ describe Uur::TablePrinting::TablePrinter do
         out.should_receive(:puts).with "The Header"
         out.should_receive(:puts).with ["one         two  three",
                                         "four       five    six"]
-        out.should_receive(:puts).with no_args
         table_printer.print
       end
     end
@@ -27,7 +26,6 @@ describe Uur::TablePrinting::TablePrinter do
         out.should_receive(:puts).with "The Header"
         out.should_receive(:puts).with ["one      two three",
                                         "four     five six"]
-        out.should_receive(:puts).with no_args
         table_printer.print
       end
     end
@@ -38,7 +36,6 @@ describe Uur::TablePrinting::TablePrinter do
         out.should_receive(:puts).with "The Header"
         out.should_receive(:puts).with ["one      two    three",
                                         "four     five   six"]
-        out.should_receive(:puts).with no_args
         table_printer.print
       end
     end
@@ -49,7 +46,6 @@ describe Uur::TablePrinting::TablePrinter do
         out.should_receive(:puts).with "The Header"
         out.should_receive(:puts).with ["one two three",
                                         "four five six"]
-        out.should_receive(:puts).with no_args
         table_printer.print
       end
     end

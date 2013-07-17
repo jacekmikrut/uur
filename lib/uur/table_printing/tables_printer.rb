@@ -9,7 +9,10 @@ module Uur
       end
 
       def print
-        tables.each { |table| TablePrinter.new(table, widths, alignments, @out).print }
+        tables.each do |table|
+          TablePrinter.new(table, widths, alignments, @out).print
+          @out.puts
+        end
       end
 
       private

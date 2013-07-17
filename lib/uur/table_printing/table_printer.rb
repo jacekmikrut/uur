@@ -12,7 +12,6 @@ module Uur
       def print
         @out.puts formatted_table.header unless formatted_table.header.nil?
         @out.puts formatted_table.map { |row_cells| row_cells.join(' ').rstrip }
-        @out.puts
       end
 
       private
