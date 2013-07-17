@@ -7,16 +7,23 @@ module Uur
     end
 
     def execute
-      if @options[:print_summary]
-        Printers::SummaryPrinter.new(duration_formatter).print(@entries.within(@options[:since], @options[:to]), @options[:summary_interval])
+      if selected_entries.none?
+        Printers::NoEntriesMessagePrinter.new(@options[:within]).print
+
+      elsif @options[:print_summary]
+        Printers::SummaryPrinter.new(duration_formatter).print(selected_entries, @options[:summary_interval])
 
       elsif @options[:print_list]
-        Printers::EntriesPrinter.new(duration_formatter).print(@entries.within(@options[:since], @options[:to]))
+        Printers::EntriesPrinter.new(duration_formatter).print(selected_entries)
 
       end
     end
 
     private
+
+    def selected_entries
+      @selected_entries ||= @entries.within(@options[:since], @options[:to])
+    end
 
     def duration_formatter
       case @options[:duration_format]
